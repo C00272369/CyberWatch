@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <title>CyberWatch</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../static/css/styles.css">
+    </head>
+    <body>
+        {% include 'header.html' %}
+        
+        {% block news %}{% endblock %}
+        
+        {% include 'footer.html' %}
+        <script>
+          function expandArticle(button) {
+              const articleContent = button.previousElementSibling;
+              if (articleContent.style.maxHeight === "none") {
+                  // Already expanded → collapse it
+                  articleContent.style.maxHeight = "120px";
+                  button.textContent = "Read More ▼";
+              } 
+              else {
+                  // Expand
+                  articleContent.style.maxHeight = "none";
+                  button.textContent = "Collapse ▲";
+              }
+          }
+        </script>
+    </body>
+  </html>
